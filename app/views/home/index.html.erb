@@ -4,7 +4,10 @@
 	<% @tasks.each do |task| %>
 
 		<li><%= task.title %>
-		<%= task.deadline %></li>
+		<%= task.deadline %>
+		<%= task.difficulty %>
+		<%= task.importance %>
+		<%= link_to 'Edit', edit_task_path(task)%></li>
 
 	<% end %>
 	</ul>
@@ -14,3 +17,5 @@
 	No tasks yet!
 
 <% end %>
+
+<button type="submit" value="New Task" onclick="window.location='/tasks/new';">New Task!</button>
