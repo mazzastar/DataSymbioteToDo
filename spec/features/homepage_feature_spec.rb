@@ -26,5 +26,12 @@ describe "homepage" do
 			find_field('Title').value.should eq 'Homework'
 			expect(page).to have_field('Title')
 		end
+
+		specify 'users should be able to delete tasks' do
+			visit'/'
+			click_on 'Delete'
+			expect(page).not_to have_content('Homework')
+		end
+
 	end
 end
