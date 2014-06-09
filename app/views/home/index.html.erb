@@ -3,7 +3,9 @@
 	<ul>
 	<% @tasks.each do |task| %>
 
-		<li><%= task.title %>
+		<li>
+		<%= check_box_tag 'done', value: task.done, class: 'checkbox'%>
+		<%= task.title %>
 		<%= task.deadline %>
 		<%= task.difficulty %>
 		<%= task.importance %>
@@ -15,7 +17,7 @@
 
 <% else %>
 
-	No tasks yet!
+	<div>No tasks yet!</div>
 
 <% end %>
 
