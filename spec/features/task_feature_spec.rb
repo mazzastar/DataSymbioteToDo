@@ -13,7 +13,7 @@ describe 'Tasks' do
 
 		visit 'tasks/new'
 		fill_in 'Title', with: 'Homework'
-		fill_in 'Deadline', with: '1/1/2014'
+		fill_in 'Deadline', with: "2014-06-05"
 		click_button "Create Task"
 
 		# expect(current_path).to eq '/'
