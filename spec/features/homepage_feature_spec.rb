@@ -2,12 +2,11 @@ require 'spec_helper'
 
 describe "homepage" do 
 
-	it 'shows the home page' do 
-		visit '/'
-		expect(page).to have_content "Hello World!"
+	context 'no tasks have been added' do 
+		it 'starts with no tasks' do 
+			visit '/'
+			expect(page).to have_content 'No tasks yet!'
+		end
 	end
-
-
-
 
 end
