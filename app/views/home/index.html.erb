@@ -1,1 +1,16 @@
-No tasks yet!
+<% if @tasks.any? %>
+
+	<ul>
+	<% @tasks.each do |task| %>
+
+		<li><%= task.title %>
+		<%= task.deadline %></li>
+
+	<% end %>
+	</ul>
+
+<% else %>
+
+	No tasks yet!
+
+<% end %>

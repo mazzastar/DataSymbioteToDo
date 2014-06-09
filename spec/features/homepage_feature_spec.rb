@@ -9,4 +9,15 @@ describe "homepage" do
 		end
 	end
 
+	context 'when one task has been added' do
+		
+		before do
+			task = create(:task)
+		end
+
+		it 'displays the taks on the homepage' do
+			visit '/'
+			expect(page).to have_content 'Homework'
+		end
+	end
 end
