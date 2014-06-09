@@ -4,5 +4,7 @@ FactoryGirl.define do
   factory :task do
   	title "Homework"
   	deadline "2014-06-05"
+  	difficulty 5
+  	importance 6
   end
 end

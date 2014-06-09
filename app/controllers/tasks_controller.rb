@@ -5,7 +5,7 @@ class TasksController < ApplicationController
 	end
 
 	def create
-		@task = Task.create!(params[:task].permit(:title, :deadline))
+		@task = Task.create!(params[:task].permit(:title, :deadline, :difficulty, :importance))
 		@task.save!
 		redirect_to '/'
 	end
