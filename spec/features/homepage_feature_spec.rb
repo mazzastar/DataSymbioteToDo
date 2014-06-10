@@ -25,7 +25,9 @@ describe "homepage" do
 			click_on 'Edit'
 			find_field('Title').value.should eq 'Homework'
 			expect(page).to have_field('Title')
+			
 		end
+
 
 		specify 'users should be able to delete tasks' do
 			visit'/'

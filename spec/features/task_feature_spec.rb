@@ -18,7 +18,7 @@ describe 'Tasks' do
     fill_in 'Importance', with: "6"
     click_button "Create Task"
 
-    # expect(current_path).to eq '/'
+    expect(current_path).to eq '/'
     expect(Task.all.count).to eq 1
     expect(Task.all.last.difficulty).to eq 5
     expect(Task.all.last.importance).to eq 6
@@ -38,10 +38,7 @@ describe 'Tasks' do
     it 'should stay checked if the user has checked it' do
     	visit '/'
     	checkbox = find("input[type='checkbox']")
-    	expect(checkbox).should_not be_checked
-
     	checkbox.set(true)
-    	checkbox.should be_checked
     	visit '/'
     	checkbox = find("input[type='checkbox']")
     	checkbox.should be_checked

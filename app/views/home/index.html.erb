@@ -6,7 +6,7 @@
 	<% @tasks.each do |task| %>
 
 		<div class="task col-md-6">
-		<%= check_box_tag 'done', value: task.done, class: 'checkbox'%>
+		<%= check_box_tag 'done', '1', task.done, class: 'checkbox', data: { id: task.id } %>
 		<%= task.title %>
 		<%= task.deadline %>
 		<%= task.difficulty %>
