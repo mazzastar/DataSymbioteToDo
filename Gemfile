@@ -34,7 +34,7 @@ group :development, :test do
 	gem 'factory_girl_rails'
 end
 
-group :producition do
+group :production do
 	gem 'rails_12factor'
 end
 
