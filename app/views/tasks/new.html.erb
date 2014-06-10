@@ -1,18 +1,2 @@
 <div class="container"><h2>New Task</h2></div>
-<div class='container'><%= form_for @task do |f| %>
-
-	<%= f.label :title %>
-	<div class="form-group"><%= f.text_field :title, placeholder: 'eg. Homework', class: 'form-control field'  %></div>
-
-	<%= f.label :deadline %>
-	<div class="form-group"><%= f.date_field :deadline, class: 'form-control field' %></div>
-
-	<%= f.label :difficulty %>
-	<div class="form-group">0 <%= f.number_field :difficulty, placeholder: 'Difficulty', class: 'form-control field slider' %> 10</div>
-
-	<%= f.label :importance %>
-	<div class="form-group">0 <%= f.number_field :importance, placeholder: 'Importance', class: 'form-control field slider' %> 10</div>
-
-	<div><%= f.submit "Create Task", class: 'btn btn-default' %></div>
-
-<%end %></div>
+<%= render 'form', :buttontext => "Create Task" %>

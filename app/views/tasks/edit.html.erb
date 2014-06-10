@@ -1,16 +1,2 @@
-<%= form_for @task do |f| %>
-	<%= f.label :title %>
-	<%= f.text_field :title %>
-
-	<%= f.label :deadline %>
-	<%= f.date_field :deadline %>
-
-	<%= f.label :difficulty %>
-	<%= f.number_field :difficulty %>
-
-	<%= f.label :importance %>
-	<%= f.number_field :importance %>
-
-	<%= f.submit "Edit Task" %>
-
-<%end %>
+<div class="container"><h2>Edit Task</h2></div>
+<%= render 'form', :buttontext => "Edit Task" %>
