@@ -1,4 +1,5 @@
 <h1>Task Manager</h1>
+<button class="btn new-task", type="submit" value="New Task" onclick="window.location='/tasks/new';">New Task!</button>
 <% if @tasks.any? %>
 
 	<div class="row task-section">
@@ -21,5 +22,3 @@
 	<div>No tasks yet!</div>
 
 <% end %>
-
-<button class="btn new-task", type="submit" value="New Task" onclick="window.location='/tasks/new';">New Task!</button>
