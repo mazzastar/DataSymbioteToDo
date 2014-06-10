@@ -3,7 +3,7 @@ $(document).ready(function(){
 		// event.preventDefault();
 		var href = $(this).siblings('a').attr('href')
 
-		 $.ajax({ url: '/tasks/' + $(this).data('id'), type: 'patch', data: { task: { 'done': $(this).prop('checked') } } });
+		 $.ajax({ url: '/tasks/' + $(this).data('id'), type: 'PUT', data: { task: { 'done': $(this).prop('checked') } } });
 		// console.log(href);
 	});	
 });

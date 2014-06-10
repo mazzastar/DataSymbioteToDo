@@ -35,10 +35,12 @@ describe 'Tasks' do
       expect(checkbox).should_not be_checked
     end
 
-    it 'should stay checked if the user has checked it' do
+    it 'should stay checked if the user has checked it', js: true do
     	visit '/'
     	checkbox = find("input[type='checkbox']")
     	checkbox.set(true)
+    	checkbox.should be_checked
+    	sleep 2
     	visit '/'
     	checkbox = find("input[type='checkbox']")
     	checkbox.should be_checked
