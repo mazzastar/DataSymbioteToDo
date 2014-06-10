@@ -1,8 +1,11 @@
 require 'spec_helper'
 
 describe 'Tasks' do
+  let(:user) { create(:user) }
 
   it 'shows a form for new tasks' do
+
+  	login_as user
 
     visit '/tasks/new'
     expect(page).to have_field('Title')
@@ -10,6 +13,8 @@ describe 'Tasks' do
   end
 
   it 'can add a task to the database' do
+
+  	login_as user
 
     visit 'tasks/new'
     fill_in 'Title', with: 'Homework'
@@ -27,7 +32,7 @@ describe 'Tasks' do
   context 'with a task added' do
     before do
       task = create(:task)
-
+      login_as user
     end
     it 'starts off uncompleted' do
       visit '/'

@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "homepage" do 
+	let(:user) { create(:user) }
 
 	context 'no tasks have been added' do 
 		it 'starts with no tasks' do 
@@ -13,6 +14,7 @@ describe "homepage" do
 		
 		before do
 			task = create(:task)
+        	login_as user
 		end
 
 		it 'displays the taks on the homepage' do
