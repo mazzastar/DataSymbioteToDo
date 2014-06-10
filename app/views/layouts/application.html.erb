@@ -25,11 +25,23 @@
 						<li><a href="#about">About</a></li>
 						<li><a href="#contact">Contact</a></li>
 					</ul>
+					<% unless user_signed_in? %>
+					<div class="navbar-form navbar-right"><%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+						<div class="form-group"><%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %></div>
+						<div class="form-group"><%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %></div>
+						<%= f.submit "Sign in", class: "btn btn-success", :method => :post %>
+					</div>
+					<% end %>
+					<% else %>
+					<%= link_to "Sign Out", destroy_user_session_path, :method => :delete, class: "btn btn-success navbar-right sign_out" %>
+					<% end %>
 					</div><!--/.nav-collapse -->
 				</div>
 			</div>
 		</div>
 		<div class="main">
+			<p class="notice"><%= notice %></p>
+    		<p class="alert"><%= alert %></p>
 			<%= yield %>
 		</div>
 	</body>
