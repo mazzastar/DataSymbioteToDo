@@ -31,7 +31,7 @@ describe 'Tasks' do
 
   context 'with a task added' do
     before do
-      task = create(:task)
+      task = create(:task, user: user)
       login_as user
     end
     it 'starts off uncompleted' do

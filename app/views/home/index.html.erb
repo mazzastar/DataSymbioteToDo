@@ -1,24 +1,29 @@
+<% if user_signed_in? %>
 <h1>Task Manager</h1>
 <button class="btn new-task", type="submit" value="New Task" onclick="window.location='/tasks/new';">New Task!</button>
-<% if @tasks.any? %>
-
-	<div class="row task-section">
-	<% @tasks.each do |task| %>
-
-		<div class="task col-md-6">
-		<%= check_box_tag 'done', '1', task.done, class: 'checkbox', data: { id: task.id } %>
-		<%= task.title %>
-		<%= task.deadline %>
-		<%= task.difficulty %>
-		<%= task.importance %>
-		<%= link_to 'Edit', edit_task_path(task)%>
-		<%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: 'Are you sure?'}%></div>
-
+	<% if @tasks.any? %>
+	
+		<div class="row task-section">
+		<% @tasks.each do |task| %>
+	
+			<div class="task col-md-6">
+			<%= check_box_tag 'done', '1', task.done, class: 'checkbox', data: { id: task.id } %>
+			<%= task.title %>
+			<%= task.deadline %>
+			<%= task.difficulty %>
+			<%= task.importance %>
+			<%= link_to 'Edit', edit_task_path(task)%>
+			<%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: 'Are you sure?'}%></div>
+	
+		<% end %>
+		</div>
+	
+	<% else %>
+	
+		<div>No tasks yet!</div>
+	
 	<% end %>
-	</div>
-
 <% else %>
-
-	<div>No tasks yet!</div>
-
+		not signed in
 <% end %>
+

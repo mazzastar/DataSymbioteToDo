@@ -3,7 +3,11 @@ class HomeController < ApplicationController
   before_action :auth_user!, except: [:index]
 
   def index
-    @tasks = Task.all.order(:created_at)
+  	if user_signed_in?
+    	@tasks = current_user.tasks.all.order(:created_at)
+	else
+		@tasks = nil
+	end
   end
 
 end

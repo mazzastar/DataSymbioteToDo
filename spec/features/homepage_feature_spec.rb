@@ -6,19 +6,20 @@ describe "homepage" do
 	context 'no tasks have been added' do 
 		it 'starts with no tasks' do 
 			visit '/'
-			expect(page).to have_content 'No tasks yet!'
+			expect(page).to have_content 'not signed in'
 		end
 	end
 
 	context 'when one task has been added' do
 		
 		before do
-			task = create(:task)
+			task = create(:task, user: user)
         	login_as user
 		end
 
 		it 'displays the taks on the homepage' do
 			visit '/'
+			puts Task.all
 			expect(page).to have_content 'Homework'
 		end
 
