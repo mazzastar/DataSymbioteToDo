@@ -1,19 +1,19 @@
 <% if @tasks.any? %>
 
-	<ul>
+	<div class="row task-section">
 	<% @tasks.each do |task| %>
 
-		<li>
+		<div class="task col-md-6">
 		<%= check_box_tag 'done', value: task.done, class: 'checkbox'%>
 		<%= task.title %>
 		<%= task.deadline %>
 		<%= task.difficulty %>
 		<%= task.importance %>
 		<%= link_to 'Edit', edit_task_path(task)%>
-		<%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: 'Are you sure?'}%></li>
+		<%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: 'Are you sure?'}%></div>
 
 	<% end %>
-	</ul>
+	</div>
 
 <% else %>
 
@@ -21,4 +21,4 @@
 
 <% end %>
 
-<button type="submit" value="New Task" onclick="window.location='/tasks/new';">New Task!</button>
+<button class="btn", type="submit" value="New Task" onclick="window.location='/tasks/new';">New Task!</button>
