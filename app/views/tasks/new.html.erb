@@ -1,16 +1,17 @@
-<%= form_for @task do |f| %>
-	<%= f.label :title %>
-	<%= f.text_field :title %>
+<div class="container"><h2>New Task</h2></div>
+<div class='container'><%= form_for @task do |f| %>
+
+	<div class="form-group"><%= f.text_field :title, placeholder: 'Title', class: 'form-control field'  %></div>
 
 	<%= f.label :deadline %>
-	<%= f.date_field :deadline %>
+	<div class="form-group"><%= f.date_field :deadline, class: 'form-control field' %></div>
 
 	<%= f.label :difficulty %>
-	<%= f.number_field :difficulty %>
+	<div class="form-group"><%= f.number_field :difficulty, placeholder: 'Difficulty', class: 'form-control field slider' %></div>
 
 	<%= f.label :importance %>
-	<%= f.number_field :importance %>
+	<div class="form-group"><%= f.number_field :importance, placeholder: 'Importance', class: 'form-control field slider' %></div>
 
-	<%= f.submit "Create Task" %>
+	<div><%= f.submit "Create Task", class: 'btn btn-default' %></div>
 
-<%end %>
+<%end %></div>
