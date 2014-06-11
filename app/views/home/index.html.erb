@@ -1,29 +1,38 @@
 <% if user_signed_in? %>
 <h1>Task Manager</h1>
 <button class="btn new-task", type="submit" value="New Task" onclick="window.location='/tasks/new';">New Task!</button>
-	<% if @tasks.any? %>
+<% if @tasks.any? %>
+<div class="row task-section">
+	<% @tasks.each do |task| %>
 	
-		<div class="row task-section">
-		<% @tasks.each do |task| %>
-	
-			<div class="task col-md-6">
+	<div class="task col-md-6">
+		<div class="panel-group" id="accordion">
 			<%= check_box_tag 'done', '1', task.done, class: 'checkbox', data: { id: task.id } %>
-			<%= task.title %>
-			<%= task.deadline %>
-			<%= task.difficulty %>
-			<%= task.importance %>
-			<%= link_to 'Edit', edit_task_path(task)%>
-			<%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: 'Are you sure?'}%></div>
-	
-		<% end %>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=task.id%>">
+					<%= task.title %> <%= task.deadline %> 	<%= task.difficulty %> <%= task.importance %>
+					</a>
+					</h4>
+				</div>
+				<div id="collapse<%=task.id %>" class="panel-collapse collapse ">
+					<div class="panel-body">
+						BULLSHIT
+					</div>
+				</div>
+			</div>
+			
 		</div>
-	
-	<% else %>
-	
-		<div>No tasks yet!</div>
+		<%= link_to 'Edit', edit_task_path(task)%>
+		<%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: 'Are you sure?'}%>
+	</div>
 	
 	<% end %>
+</div>
 <% else %>
-		not signed in
+<div>No tasks yet!</div>
 <% end %>
-
+<% else %>
+not signed in
+<% end %>
