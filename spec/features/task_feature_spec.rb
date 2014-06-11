@@ -37,7 +37,7 @@ describe 'Tasks' do
     it 'starts off uncompleted' do
       visit '/'
       checkbox = find("input[type='checkbox']")
-      expect(checkbox).should_not be_checked
+      expect(checkbox).not_to be_checked
     end
 
     it 'should stay checked if the user has checked it', js: true do

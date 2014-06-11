@@ -29,7 +29,6 @@ class TasksController < ApplicationController
 
 	def update
 		@task = Task.find(params[:id])
-		puts params.inspect
 		
 		if @task.update_attributes(params[:task].permit(:title, :done, :deadline, :difficulty, :importance))
 			# redirect_to'/'

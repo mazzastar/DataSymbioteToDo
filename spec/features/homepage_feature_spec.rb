@@ -19,7 +19,6 @@ describe "homepage" do
 
 		it 'displays the taks on the homepage' do
 			visit '/'
-			puts Task.all
 			expect(page).to have_content 'Homework'
 		end
 
@@ -36,6 +35,15 @@ describe "homepage" do
 			visit'/'
 			click_on 'Delete'
 			expect(page).not_to have_content('Homework')
+		end
+
+		specify 'users should be able to edit a task without leaving the homepage' do
+			visit '/'
+			click_on 'Homework'
+			fill_in 'Title', with: 'New Homework'
+			click_on 'Edit Task'
+			visit '/'
+			expect(page).to have_content 'New Homework'
 		end
 
 	end
