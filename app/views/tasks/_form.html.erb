@@ -11,13 +11,13 @@
 		<div class="form-group"><%= f.date_field :deadline, class: 'form-control field' %></div>
 
 		<%= f.label :difficulty %>
-		<div class="form-group">0 <%= f.number_field :difficulty, placeholder: 'Difficulty', class: 'form-control field slider difficulty_slider', data: { 'slider-value' => (task.difficulty || 5) } %> 10</div>
+		<div class="form-group">1 <%= f.number_field :difficulty, placeholder: 'Difficulty', class: 'form-control field slider difficulty_slider', data: { 'slider-value' => (task.difficulty || 5) } %> 10</div>
 
 		<%= f.label :importance %>
-		<div class="form-group">0 <%= f.number_field :importance, placeholder: 'Importance', class: 'form-control field slider', data: {'slider-value' => (task.importance) || 5} %> 10</div>
+		<div class="form-group">1 <%= f.number_field :importance, placeholder: 'Importance', class: 'form-control field slider', data: {'slider-value' => (task.importance) || 5} %> 10</div>
 
 		<%= f.label :category %>
-		<div class="form-group"><%= f.number_field :category, class: 'form-control field slider', data: {'slider-value' => (task.importance) || 1} %></div>
+		<div class="form-group category"><%= f.number_field :category, class: 'form-control field category-slider', data: {'slider-value' => (task.importance) || 1} %></div>
 
 		<div><%= f.submit buttontext, class: 'btn btn-default submit_edit' %></div>
 

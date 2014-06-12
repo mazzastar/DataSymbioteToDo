@@ -370,7 +370,7 @@
 	};
 
 	$.fn.slider.defaults = {
-		min: 0,
+		min: 1,
 		max: 10,
 		step: 1,
 		orientation: 'horizontal',
