@@ -2,11 +2,12 @@ require 'spec_helper'
 
 describe "homepage" do 
 	let(:user) { create(:user) }
+	let(:user2) { create(:user, email: 'user2@test.com') }
 
 	context 'no tasks have been added' do 
 		it 'starts with no tasks' do 
 			visit '/'
-			expect(page).to have_content 'not signed in'
+			expect(page).to have_content 'Sign Up'
 		end
 	end
 
@@ -46,5 +47,10 @@ describe "homepage" do
 			expect(page).to have_content 'New Homework'
 		end
 
+		specify 'users should not be able to see other users tasks' do
+			create(:task, user: user2, title: 'Dicking around')
+			visit '/'
+			expect(page).not_to have_content 'Dicking around'
+		end
 	end
 end
