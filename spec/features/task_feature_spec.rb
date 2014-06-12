@@ -9,6 +9,12 @@ describe 'Tasks' do
 
     visit '/tasks/new'
     expect(page).to have_field('Title')
+    expect(page).to have_field('Deadline')
+    expect(page).to have_field('Difficulty')
+    expect(page).to have_field('Importance')
+    expect(page).to have_field('Description')
+    expect(page).to have_button('Create Task')
+
 
   end
 
@@ -21,6 +27,7 @@ describe 'Tasks' do
     fill_in 'Deadline', with: "2014-06-05"
     fill_in 'Difficulty', with: "5"
     fill_in 'Importance', with: "6"
+    fill_in 'Description', with: "Science AND maths"
     click_button "Create Task"
 
     expect(current_path).to eq '/'

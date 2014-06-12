@@ -8,7 +8,7 @@ class TasksController < ApplicationController
 	end
 
 	def create
-		@task = current_user.tasks.create!(params[:task].permit(:title, :deadline, :difficulty, :importance))
+		@task = current_user.tasks.create!(params[:task].permit(:title, :deadline, :difficulty, :importance, :description))
 		@task.save!
 		respond_to do |format|
 			format.html{redirect_to '/'}
@@ -30,7 +30,7 @@ class TasksController < ApplicationController
 	def update
 		@task = Task.find(params[:id])
 		
-		if @task.update_attributes(params[:task].permit(:title, :done, :deadline, :difficulty, :importance))
+		if @task.update_attributes(params[:task].permit(:title, :done, :deadline, :difficulty, :importance, :description))
 			# redirect_to'/'
 			if request.xhr?
 				 # render json: { success: true }

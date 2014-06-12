@@ -6,5 +6,6 @@ FactoryGirl.define do
   	deadline "2014-06-05"
   	difficulty 5
   	importance 6
+  	description "Science AND Maths"
   end
 end

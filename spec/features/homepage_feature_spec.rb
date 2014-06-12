@@ -14,7 +14,7 @@ describe "homepage" do
 	context 'when one task has been added' do
 		
 		before do
-			task = create(:task, user: user)
+			create(:task, user: user)
         	login_as user
 		end
 
@@ -41,10 +41,15 @@ describe "homepage" do
 		specify 'users should be able to edit a task without leaving the homepage' do
 			visit '/'
 			click_on 'Homework'
+			find_field('Description').value.should eq 'Science AND Maths'
 			fill_in 'Title', with: 'New Homework'
+			fill_in 'Description', with: 'Geography'
 			click_on 'Edit Task'
 			visit '/'
 			expect(page).to have_content 'New Homework'
+			click_on 'New Homework'
+			find_field('Description').value.should eq 'Geography'
+			
 		end
 
 		specify 'users should not be able to see other users tasks' do
