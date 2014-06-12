@@ -7,16 +7,34 @@
 	
 	<div class="task col-md-7 row">
 			<%= check_box_tag 'done', '1', task.done, class: 'checkbox col-md-1', data: { id: task.id } %>
-		<article class="panel-group col-md-10" id="accordion">
+		<article class="panel-group col-md-9" id="accordion">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h4 class="panel-title">
 					<a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=task.id%>">
-					<%= task.title %> <%= task.deadline %> 	<%= task.difficulty %> <%= task.importance %>
+					<%= task.title %> <%= task.deadline %>
 					</a>
 					</h4>
 				</div>
-				<div id="collapse<%=task.id %>" class="panel-collapse collapse ">
+				<div id="collapse<%=task.id %>" class="panel-collapse collapse extraInfo">
+					<div class="panel-body">
+						<h4>Description</h4>
+						<div class="description container"><%= task.description %></div>
+						<h4>Difficulty</h4>
+						<div class="difficulty progress">
+  							<div class="progress-bar" role="progressbar" aria-valuenow=" <%= task.difficulty %>" aria-valuemin="0" aria-valuemax="10" style="width: <%= task.difficulty * 10 %>%;">
+    							<span><%= task.difficulty %></span>
+  							</div>
+						</div>
+						<h4>Importance</h4>
+						<div class="importance progress">
+  							<div class="progress-bar" role="progressbar" aria-valuenow=" <%= task.importance %>" aria-valuemin="0" aria-valuemax="10" style="width: <%= task.importance * 10 %>%;">
+    							<span><%= task.importance %></span>
+  							</div>
+						</div>
+					</div>
+				</div>
+				<div id="collapse-edit<%=task.id %>" class="panel-collapse collapse ">
 					<div class="panel-body">
 						<div class="container"><h2>Edit Task</h2></div>
 						<%= render '/tasks/form', :buttontext => "Edit Task", task: task %>
@@ -25,6 +43,9 @@
 			</div>
 			
 		</article>
+		<a data-toggle="collapse" data-parent="#accordion" href="#collapse-edit<%=task.id%>" class="btn btn-info col-md-1">
+			Edit
+		</a>
 		<%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger col-md-1'%>
 	</div>
 	

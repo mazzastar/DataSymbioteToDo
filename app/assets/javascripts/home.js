@@ -15,15 +15,21 @@ $(document).ready(function(){
 			success: function(response){
 				console.log(response);
 				$(form).closest('.panel-collapse').collapse('toggle');
-				var headers = ["title", "deadline", "importance", "difficulty"];
+				var headers = ["title", "deadline", "importance", "difficulty", "description"];
 				var newText = "";
-				for (var i in headers){
-					var header = headers[i];
-					newText += (response[header]+" ");
-				}
-				
+				// for (var i in headers){
+				// 	var header = headers[i];
+				// 	newText += (response[header]+" ");
 
-				$(form).closest('article').find('a').text(newText);
+				// 	$(form).closest('.extraInfo').find("."+header).text(response[header]);
+				// }
+				
+				 $(form).closest('article').find('a').text(response["title"] + " " + response["deadline"]);
+				 $(form).closest('article').find('.description').text(response["description"]);
+				 $(form).closest('article').find('.difficulty span').text(response["difficulty"]);
+				 $(form).closest('article').find('.difficulty .progress-bar').attr('style', "width:" +response["difficulty"] * 10 +"%");
+				 $(form).closest('article').find('.importance span').text(response["importance"]);
+				 $(form).closest('article').find('.importance .progress-bar').attr('style', "width:" + response["importance"] * 10 +"%");
 				
 			}
 		});
