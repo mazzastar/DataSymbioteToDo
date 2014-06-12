@@ -10,6 +10,7 @@ describe "homepage" do
 			expect(page).to have_content 'Sign Up'
 		end
 	end
+	
 
 	context 'when one task has been added' do
 		
