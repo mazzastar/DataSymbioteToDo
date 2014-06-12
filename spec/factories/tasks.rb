@@ -7,5 +7,6 @@ FactoryGirl.define do
   	difficulty 5
   	importance 6
   	description "Science AND Maths"
+  	category 5
   end
 end

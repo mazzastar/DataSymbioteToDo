@@ -16,7 +16,11 @@
 		<%= f.label :importance %>
 		<div class="form-group">0 <%= f.number_field :importance, placeholder: 'Importance', class: 'form-control field slider', data: {'slider-value' => (task.importance) || 5} %> 10</div>
 
+		<%= f.label :category %>
+		<div class="form-group"><%= f.number_field :category, class: 'form-control field slider', data: {'slider-value' => (task.importance) || 1} %></div>
+
 		<div><%= f.submit buttontext, class: 'btn btn-default submit_edit' %></div>
+
 
 	<% end %>
 </div>

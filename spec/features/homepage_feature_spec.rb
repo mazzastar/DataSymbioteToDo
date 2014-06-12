@@ -10,7 +10,7 @@ describe "homepage" do
 			expect(page).to have_content 'Sign Up'
 		end
 	end
-	
+
 
 	context 'when one task has been added' do
 		
@@ -58,5 +58,25 @@ describe "homepage" do
 			visit '/'
 			expect(page).not_to have_content 'Dicking around'
 		end
+
+
+		it 'should display the description of the task' do
+			visit '/'
+			click_on 'Homework'
+			expect(page).to have_content 'Science AND Maths'
+		end
+
+		it "should display the difficulty of the task" do
+			visit '/'
+			click_on 'Homework'
+			expect(page).to have_css('span', :text=>5)
+		end
+
+		it "should display the importance of the task" do
+			visit '/'
+			click_on 'Homework'
+			expect(page).to have_css('span', :text=>6)
+		end
+
 	end
 end

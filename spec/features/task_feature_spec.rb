@@ -13,12 +13,14 @@ describe 'Tasks' do
     expect(page).to have_field('Difficulty')
     expect(page).to have_field('Importance')
     expect(page).to have_field('Description')
+    expect(page).to have_field('Category')
     expect(page).to have_button('Create Task')
+
 
 
   end
 
-  it 'can add a task to the database' do
+  it 'can add a task to the database with correct fields' do
 
   	login_as user
 
@@ -28,12 +30,14 @@ describe 'Tasks' do
     fill_in 'Difficulty', with: "5"
     fill_in 'Importance', with: "6"
     fill_in 'Description', with: "Science AND maths"
+    fill_in 'Category', with: "5"
     click_button "Create Task"
 
     expect(current_path).to eq '/'
     expect(Task.all.count).to eq 1
     expect(Task.all.last.difficulty).to eq 5
     expect(Task.all.last.importance).to eq 6
+    expect(Task.all.last.category).to eq 5
   end
 
   context 'with a task added' do
