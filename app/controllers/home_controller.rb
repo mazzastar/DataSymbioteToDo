@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
-
   before_action :auth_user!, except: [:index]
+  include TasksHelper
 
   def index
   	if user_signed_in?
