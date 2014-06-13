@@ -1,1 +1,0 @@
-_catergory-formater.rb
