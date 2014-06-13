@@ -1,18 +1,11 @@
-# class API::TasksController < ApplicationController
-
-# 	def show
-# 	end
-# end
-
 module API 
 	class TasksController < ApplicationController
-		# before_action :authenticate
 		def show
 			
 		end
 
 		def index
-			@tasks = Task.all
+			@tasks = current_user.tasks
 			render json: @tasks, status: 200
 		end
 
@@ -42,5 +35,5 @@ module API
 		# 		end
 		# 	end
 		# end
-	
+	end
 end
