@@ -5,7 +5,8 @@ module API
 		end
 
 		def index
-			@tasks = current_user.tasks
+			# @tasks = current_user.tasks
+			@tasks = Task.all
 			render json: @tasks, status: 200
 		end
 
@@ -13,7 +14,7 @@ module API
 
 		end
 
-		# vv commented code is for authorization vv
+		# vv this was for authorization without devise. might still be needed. vv
 		# protected
 		# 	def authenticate
 		# 		authenticate_basic_auth || render_unauthorized
