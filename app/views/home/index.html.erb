@@ -12,7 +12,7 @@
 				<div class="panel-heading">
 					<h4 class="panel-title">
 					<a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=task.id%>">
-					<%= task.title %> <%= task.deadline %>
+					<%= task.title %> <%= task.deadline.strftime("%A, %d %b %Y %l:%M %p") %>
 					</a>
 					</h4>
 				</div>

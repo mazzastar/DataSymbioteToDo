@@ -4,6 +4,10 @@ $(document).ready(function(){
 		return ['BLANK', 'Heart ', 'Film ', 'Drinks ', 'Concert ', 'Home ', 'School ', 'Office ', 'Travel ', 'Correspondence ', 'Private '][value];
 	}});
 
+	$(function () {
+		$('#datetimepicker1').datetimepicker();
+	});
+
 	// var sliderToChange = $('.category').find('.slider');
 	
 	// sliderToChange.tooltip.find('tooltip-arrow')('hide')

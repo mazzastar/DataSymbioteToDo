@@ -12,6 +12,7 @@
  *
  *= require slider
  *= require bootstrap
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
@@ -21,7 +22,7 @@
 @import 'bootstrap-datetimepicker';
 
 body {
-	font-family: "fontawesome";
+
 }
 
 .main {
