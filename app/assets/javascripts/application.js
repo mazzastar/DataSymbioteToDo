@@ -14,5 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-slider
+//= require moment
+//= require bootstrap-datetimepicker
 //= require transition
 //= require_tree .
