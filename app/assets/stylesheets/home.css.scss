@@ -38,11 +38,6 @@
 
 }
 
-input[type="checkbox"] {
-
-
-	
-}
 
 .panel-default {
 
@@ -51,4 +46,14 @@ input[type="checkbox"] {
 
 a.complete {
 	text-decoration: line-through;
+}
+
+.donesection {
+
+text-align: center;
+	input[type="checkbox"] {
+
+		margin-left: 15px;
+	
+	}
 }
