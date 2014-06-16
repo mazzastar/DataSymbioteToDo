@@ -26,8 +26,8 @@ $(document).ready(function(){
 				// }
 
 				var deadline = new Date(response["deadline"]);
-				var a = moment(deadline);
-				var deadlineString = a.format("dddd MMM Do YYYY, h:mm:ss A");
+				// var a = moment(deadline);
+				var deadlineString = moment(deadline).format("dddd MMM Do YYYY, h:mm:ss A");
 
 				 $(form).closest('article').find('a').text(response["title"] + " " + deadlineString);
 				 $(form).closest('article').find('.description').text(response["description"]);
