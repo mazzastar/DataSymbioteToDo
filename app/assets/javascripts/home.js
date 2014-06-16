@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 	$('body').on('click', '#done', function(event){
 		// event.preventDefault();
@@ -23,8 +24,12 @@ $(document).ready(function(){
 
 				// 	$(form).closest('.extraInfo').find("."+header).text(response[header]);
 				// }
-				
-				 $(form).closest('article').find('a').text(response["title"] + " " + response["deadline"]);
+
+				var deadline = new Date(response["deadline"]);
+				var a = moment(deadline);
+				var deadlineString = a.format("dddd MMM Do YYYY, h:mm:ss A");
+
+				 $(form).closest('article').find('a').text(response["title"] + " " + deadlineString);
 				 $(form).closest('article').find('.description').text(response["description"]);
 				 $(form).closest('article').find('.difficulty span').text(response["difficulty"]);
 				 $(form).closest('article').find('.difficulty .progress-bar').attr('style', "width:" +response["difficulty"] * 10 +"%");

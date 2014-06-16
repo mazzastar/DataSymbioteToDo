@@ -5,7 +5,7 @@ $(document).ready(function(){
 	}});
 
 	$(function () {
-		$('#datetimepicker1').datetimepicker();
+		$('.datetimepicker').datetimepicker();
 	});
 
 	// var sliderToChange = $('.category').find('.slider');
