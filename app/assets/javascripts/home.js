@@ -1,8 +1,18 @@
+
 $(document).ready(function(){
 	$('body').on('click', '#done', function(event){
 		// event.preventDefault();
-		var href = $(this).siblings('a').attr('href')
+		var href = $(this).siblings('a').attr('href');
+
 		$.ajax({ url: '/tasks/' + $(this).data('id'), type: 'PUT', data: { task: { 'done': $(this).prop('checked') } } });
+		
+		var text = ($(this).closest('.row').find('a').first());
+		if (text.hasClass("complete")){
+			$(text).removeClass("complete").addClass("incomplete");
+		}
+		else{
+			$(text).removeClass("incomplete").addClass("complete");
+		}
 	});	
 
 	$('.panel-body .edit_task').on('submit', function(event){
@@ -23,13 +33,19 @@ $(document).ready(function(){
 
 				// 	$(form).closest('.extraInfo').find("."+header).text(response[header]);
 				// }
-				
-				 $(form).closest('article').find('a').text(response["title"] + " " + response["deadline"]);
+
+				var deadline = new Date(response["deadline"]);
+				// var a = moment(deadline);
+				var deadlineString = moment(deadline).format("dddd MMM Do YYYY, h:mm:ss A");
+
+				 $(form).closest('article').find('a').text(response["title"] + " " + deadlineString);
 				 $(form).closest('article').find('.description').text(response["description"]);
 				 $(form).closest('article').find('.difficulty span').text(response["difficulty"]);
 				 $(form).closest('article').find('.difficulty .progress-bar').attr('style', "width:" +response["difficulty"] * 10 +"%");
 				 $(form).closest('article').find('.importance span').text(response["importance"]);
 				 $(form).closest('article').find('.importance .progress-bar').attr('style', "width:" + response["importance"] * 10 +"%");
+				 $(form).closest('article').find('.category').text(response["category"]);
+
 				
 			}
 		});

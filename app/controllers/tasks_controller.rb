@@ -39,6 +39,7 @@ class TasksController < ApplicationController
 				redirect_to '/'
 			end
 		end
+		puts params.inspect
 	end
 
 end

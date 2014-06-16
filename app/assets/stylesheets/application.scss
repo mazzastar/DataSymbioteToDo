@@ -12,20 +12,26 @@
  *
  *= require slider
  *= require bootstrap
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
 
 @import "font-awesome";
+/*@import 'bootstrap';*/
+@import 'bootstrap-datetimepicker';
 
-body {
+.slider .tooltip-inner {
+
 	font-family: "fontawesome";
+
 }
 
 .main {
 
 	margin: 20px;
 	margin-top: 5em;
+
 }
 
 .navbar-inverse {
@@ -35,7 +41,9 @@ body {
 }
 
 .sign_out {
+
 	margin-top: 8px;
+	
 }
 
 /*.navbar-inverse .navbar-nav>.active>a {

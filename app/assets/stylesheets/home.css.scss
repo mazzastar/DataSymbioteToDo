@@ -12,6 +12,7 @@
 	padding: 3px;
 	margin: 5px;
 	border-radius: 4px;
+	overflow: hidden;
 
 }
 
@@ -23,10 +24,38 @@
 }
 
 .panel-group {
-	margin-bottom: 0px !important;
+	margin-bottom: 0px;
 }
 
 .icon {
-	color: red;
+	font-family: "fontawesome";
 	font-size: 50px;
+}
+
+.btn {
+
+	margin: 5px;
+
+}
+
+
+.panel-default {
+
+	margin-top: 2px;
+}
+
+a.complete {
+	text-decoration: line-through;
+}
+
+.donesection {
+
+text-align: center;
+	input[type="checkbox"] {
+
+		margin-left: auto;
+    	margin-right: auto;
+    	width: 50%;
+	
+	}
 }
