@@ -30,6 +30,8 @@ $(document).ready(function(){
 				 $(form).closest('article').find('.difficulty .progress-bar').attr('style', "width:" +response["difficulty"] * 10 +"%");
 				 $(form).closest('article').find('.importance span').text(response["importance"]);
 				 $(form).closest('article').find('.importance .progress-bar').attr('style', "width:" + response["importance"] * 10 +"%");
+				 $(form).closest('article').find('.category').text(response["category"]);
+
 				
 			}
 		});

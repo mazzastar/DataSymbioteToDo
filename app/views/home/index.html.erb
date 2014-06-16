@@ -19,9 +19,17 @@
 				<div id="collapse<%=task.id %>" class="panel-collapse collapse extraInfo">
 					<div class="panel-body">
 						<div class="panel-body-header row">
-							<h4 class="col-md-4">Description</h4><b class="col-md-4"> </b><div class="col-md-4"><div class="icon"><%= icon(task.category) %></div><p><%= name(task.category) %></p></div>
+							<div class="col-md-4">
+								<h4>Description</h4>
+								<div class="description container"><%= task.description %></div>
+							</div>
+							<b class="col-md-4"> </b>
+
+							<div class="col-md-4"><div class="icon"><%= icon(task.category) %></div>
+							<p><%= name(task.category) %></p>
+							</div>
 						</div>
-						<div class="description container"><%= task.description %></div>
+						
 						<h4>Difficulty</h4>
 						<div class="difficulty progress">
   							<div class="progress-bar" role="progressbar" aria-valuenow=" <%= task.difficulty %>" aria-valuemin="0" aria-valuemax="10" style="width: <%= task.difficulty * 10 %>%;">

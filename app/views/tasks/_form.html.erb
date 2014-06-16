@@ -9,19 +9,18 @@
 		<div class="form-group"><%= f.text_field :description, placeholder: 'eg. Maths, Science', class: 'form-control field'  %></div>
 
 		<%= f.label :deadline %>
-		<div class="container">
 		    <div class="row">
-		        <div class='col-sm-6' style="padding: 0px 5px !important">
+		        <div class='col-sm-4'>
 		            <div class="form-group">
-		                <div class='input-group date' id='datetimepicker1' data-date-format="YYYY/MM/DD  hh:mm A/PM">
-		                    <input type='text' class="form-control" id="task_deadline" name="task[deadline]"/>
+		                <div class='input-group date' id='datetimepicker1' data-date-format="YYYY/MM/DD  hh:mm A">
+		                    <!-- <input type='text' class="form-control" id="task_deadline" name="task[deadline]"/> -->
+		                    <%= f.datetime_field :deadline, placeholder: 'YYYY/MM/DD', class: 'form-control field', id: "task_deadline", name: "task[deadline]" %>
 		                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
 		                    </span>
 		                </div>
 		            </div>
 		        </div>
 		    </div>
-		</div>		
 
 		<%= f.label :difficulty %>
 		<div class="form-group">1 <%= f.number_field :difficulty, placeholder: 'Difficulty', class: 'form-control field slider difficulty_slider', data: { 'slider-value' => (task.difficulty || 5) } %> 10</div>
