@@ -5,7 +5,9 @@ $(document).ready(function(){
 	}});
 
 	$(function () {
-		$('.datetimepicker').datetimepicker();
+		$('.datetimepicker').datetimepicker({
+			startDate: "+0d"
+		});
 	});
 
 	// var sliderToChange = $('.category').find('.slider');
