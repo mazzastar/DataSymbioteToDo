@@ -2,8 +2,17 @@
 $(document).ready(function(){
 	$('body').on('click', '#done', function(event){
 		// event.preventDefault();
-		var href = $(this).siblings('a').attr('href')
+		var href = $(this).siblings('a').attr('href');
+
 		$.ajax({ url: '/tasks/' + $(this).data('id'), type: 'PUT', data: { task: { 'done': $(this).prop('checked') } } });
+		
+		var text = ($(this).closest('.row').find('a').first());
+		if (text.hasClass("complete")){
+			$(text).removeClass("complete").addClass("incomplete");
+		}
+		else{
+			$(text).removeClass("incomplete").addClass("complete");
+		}
 	});	
 
 	$('.panel-body .edit_task').on('submit', function(event){

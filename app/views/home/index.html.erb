@@ -6,13 +6,16 @@
 	<% @tasks.each do |task| %>
 	
 	<div class="task col-md-7 row">
-			<%= check_box_tag 'done', '1', task.done, class: 'checkbox col-md-1', data: { id: task.id } %>
+			<div class="col-sm-1">Done?<%= check_box_tag 'done', '1', task.done, class: 'checkbox', data: { id: task.id } %></div>
 		<article class="panel-group col-md-9" id="accordion">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h4 class="panel-title">
-					<a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=task.id%>">
-					<%= task.title %> <%= task.deadline.strftime("%A, %d %b %Y %l:%M %p") %>
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=task.id%>" class= <%= task.done ? "complete": "incomplete" %>>
+
+						<%= task.title %> <%= task.deadline.strftime("%A, %d %b %Y %l:%M %p") %>
+
+					
 					</a>
 					</h4>
 				</div>
@@ -53,10 +56,12 @@
 			</div>
 			
 		</article>
-		<a data-toggle="collapse" data-parent="#accordion" href="#collapse-edit<%=task.id%>" class="btn btn-info col-md-1">
-			Edit
-		</a>
-		<%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger col-md-1'%>
+		<div class="editdeletebtns col-md-2 row">
+			<a data-toggle="collapse" data-parent="#accordion" href="#collapse-edit<%=task.id%>" class="btn btn-info col-md-5">
+				Edit
+			</a>
+			<%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger col-md-5'%>
+		</div>
 	</div>
 	
 	<% end %>
