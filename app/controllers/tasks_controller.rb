@@ -31,9 +31,7 @@ class TasksController < ApplicationController
 		@task = Task.find(params[:id])
 		
 		if @task.update_attributes(params[:task].permit(:title, :done, :deadline, :difficulty, :importance, :description, :category))
-			# redirect_to'/'
 			if request.xhr?
-				 # render json: { success: true }
 				render json: @task
 			else
 				redirect_to '/'

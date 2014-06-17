@@ -1,5 +1,6 @@
 
 <div class='container edit_form' >
+
 	<%= form_for task do |f| %>
 
 		<%= f.label :title %>
@@ -12,10 +13,8 @@
 		    <div class="row">
 		        <div class='col-sm-4'>
 		            <div class="form-group">
-
 		                <div class='input-group date datetimepicker' data-date-format="YYYY/MM/DD  hh:mm A">
-		                    <!-- <input type='text' class="form-control" id="task_deadline" name="task[deadline]"/> -->
-		                    <%= f.datetime_field :deadline, placeholder: 'YYYY/MM/DD', class: 'form-control field', id: "task_deadline", name: "task[deadline]"%>
+		                    <%= f.datetime_field :deadline, placeholder: 'YYYY/MM/DD', class: 'form-control', id: "task_deadline", name: "task[deadline]"%>
 		                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
 		                    </span>
 		                </div>
@@ -29,11 +28,40 @@
 		<%= f.label :importance %>
 		<div class="form-group">1 <%= f.number_field :importance, placeholder: 'Importance', class: 'form-control field slider', data: {'slider-value' => (task.importance) || 5} %> 10</div>
 
-		<%= f.label :category %>
-		<div class="form-group category"><%= f.number_field :category, class: 'form-control field category-slider', data: {'slider-value' => (task.importance) || 1} %></div>
-
+		<div class="current-cat">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Select a Category</button>
+				<ul class="dropdown-menu" data-toggle="buttons-radio" data-container="body">
+					<div class="btn-toolbar">
+						<%= f.hidden_field :category, class: "category-field" %>
+						<p><div class="btn-group">
+							<button class="category-btn btn btn-default" value="1"></button>
+        					<button class="category-btn btn btn-default" value="2"></button>
+        					<button class="category-btn btn btn-default" value="3"></button>
+        					<button class="category-btn btn btn-default" value="4"></button>
+        					<button class="category-btn btn btn-default" value="5"></button>
+        					<button class="category-btn btn btn-default" value="6"></button>
+        					<button class="category-btn btn btn-default" value="7"></button>
+        					<button class="category-btn btn btn-default" value="8"></button>
+        				</div></p>
+						</p><div class="btn-group">
+							<button class="category-btn btn btn-default" value="9"></button>
+        					<button class="category-btn btn btn-default" value="10"></button>
+        					<button class="category-btn btn btn-default" value="11"></button>
+        					<button class="category-btn btn btn-default" value="12"></button>
+        					<button class="category-btn btn btn-default" value="13"></button>
+        					<button class="category-btn btn btn-default" value="14"></button>
+        					<button class="category-btn btn btn-default" value="15"></button>
+        					<button class="category-btn btn btn-default" value="16"></button>
+        				</div></p>
+        			</div>
+       			</ul>
+	
+	
+				<span class="newdata"><%= icon(task.category) %> <%= name(task.category) %></span>
+		</div>
+		
 		<div><%= f.submit buttontext, class: 'btn btn-default submit_edit' %></div>
 
-
 	<% end %>
+
 </div>

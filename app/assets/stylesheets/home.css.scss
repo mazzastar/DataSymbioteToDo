@@ -3,24 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .task-section {
-
 	margin-left: 20px;
 }
+
 .task {
-	
 	background-color: #B6C6FA;
 	padding: 3px;
 	margin: 5px;
 	border-radius: 4px;
-	overflow: hidden;
-
 }
 
 .new-task {
-
 	margin-bottom: 1em;
 	margin-top: 1em;
-
 }
 
 .panel-group {
@@ -33,14 +28,11 @@
 }
 
 .btn {
-
 	margin: 5px;
-
 }
 
 
 .panel-default {
-
 	margin-top: 2px;
 }
 
@@ -49,13 +41,17 @@ a.complete {
 }
 
 .donesection {
-
-text-align: center;
+	text-align: center;
 	input[type="checkbox"] {
 
 		margin-left: auto;
     	margin-right: auto;
     	width: 50%;
-	
+	}
+}
+
+.btn-group {
+	.btn {
+	margin: 0px;
 	}
 }
