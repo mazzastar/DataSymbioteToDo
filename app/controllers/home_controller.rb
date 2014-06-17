@@ -27,3 +27,11 @@ end
 def devise_mapping
   @devise_mapping ||= Devise.mappings[:user]
 end
+
+def completed_tasks
+
+end
+
+def incompleted_tasks
+
+end

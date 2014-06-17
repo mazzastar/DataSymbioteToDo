@@ -16,6 +16,10 @@ $(document).ready(function(){
 	});	
 
 	$('.panel-body .edit_task').on('submit', function(event){
+
+		CATEGORIES_ICONS = {1:'',2: '', 3:'', 4:'', 5:'', 6:'', 7:'', 8:'', 9:'', 10:'', 11:'', 12:'', 13:'', 14:'', 15:'', 16:''}
+		CATEGORIES_NAMES = {1:'Romance',2: 'Entertainment', 3:'Drinks', 4:'Live Entertainment', 5:'Home', 6:'Education', 7:'Office', 8:'Travel', 9:'Correspondence', 10:'Garden', 11:'Shopping', 12:'Birthday', 13:'Meeting', 14:'Meal', 15:'Health', 16:'Call'}
+
 		event.preventDefault();
 		var form = this;
 		$.ajax({ 
@@ -25,8 +29,8 @@ $(document).ready(function(){
 			success: function(response){
 				console.log(response);
 				$(form).closest('.panel-collapse').collapse('toggle');
-				var headers = ["title", "deadline", "importance", "difficulty", "description"];
-				var newText = "";
+				// var headers = ["title", "deadline", "importance", "difficulty", "description", "category"];
+				// var newText = "";
 				// for (var i in headers){
 				// 	var header = headers[i];
 				// 	newText += (response[header]+" ");
@@ -44,7 +48,9 @@ $(document).ready(function(){
 				 $(form).closest('article').find('.difficulty .progress-bar').attr('style', "width:" +response["difficulty"] * 10 +"%");
 				 $(form).closest('article').find('.importance span').text(response["importance"]);
 				 $(form).closest('article').find('.importance .progress-bar').attr('style', "width:" + response["importance"] * 10 +"%");
-				 $(form).closest('article').find('.category').text(response["category"]);
+				 $(form).closest('article').find('.category').text(CATEGORIES_NAMES[response["category"]]);
+				 $(form).closest('article').find('.icon').text(CATEGORIES_ICONS[response["category"]]);
+				 console.log(response["category"]);
 
 				
 			}
