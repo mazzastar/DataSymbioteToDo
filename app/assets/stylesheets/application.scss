@@ -18,32 +18,19 @@
  */
 
 @import "font-awesome";
-/*@import 'bootstrap';*/
 @import 'bootstrap-datetimepicker';
 
-.slider .tooltip-inner {
-
-	font-family: "fontawesome";
-
-}
-
 .main {
-
 	margin: 20px;
 	margin-top: 5em;
-
 }
 
 .navbar-inverse {
-	
 	border-color: #6A8EAB;
-
 }
 
 .sign_out {
-
 	margin-top: 8px;
-	
 }
 
 .category-btn {
@@ -54,18 +41,14 @@
 	font-family: "fontawesome";
 }
 
-/*.navbar-inverse .navbar-nav>.active>a {
-	background-color: #6A8EAB !important;
+.btn-toolbar {
+	padding: 10px;
+	.btn-group {
+		margin: 5px;
+	}
 }
 
-.navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
-	background-color: white !important;
+.dropdown-menu {
+	top: 90%;
+	left: 5%;
 }
-
-.navbar-inverse .navbar-nav>li>a {
-	color: black !important;
-}
-
-.navbar-brand {
-	color: black !important;
-}*/

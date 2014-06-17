@@ -7,7 +7,6 @@
 		<li> <a href="#">Complete</a></li>
 			<li><div class="row task-section">
 				<% @tasks.each do |task| %>
-				
 				<div class="task col-md-8 row">
 						<div class="donesection col-sm-1">Done?<%= check_box_tag 'done', '1', task.done, class: 'checkbox', data: { id: task.id } %></div>
 					<article class="panel-group col-md-8" id="accordion">
@@ -15,10 +14,7 @@
 							<div class="panel-heading">
 								<h4 class="panel-title">
 								<a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=task.id%>" class= <%= task.done ? "complete": "	incomplete" %>>
-			
 									<%= task.title %> <%= task.deadline.strftime("%A, %d %b %Y %l:%M %p") %>
-			
-								
 								</a>
 								</h4>
 							</div>
