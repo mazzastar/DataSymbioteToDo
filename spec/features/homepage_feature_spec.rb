@@ -45,7 +45,7 @@ describe "homepage" do
 			find_field('Description').value.should eq 'Science AND Maths'
 			fill_in 'Title', with: 'New Homework'
 			fill_in 'Description', with: 'Geography'
-			click_on 'Edit Task'
+			click_on 'Save Task'
 			visit '/'
 			expect(page).to have_content 'New Homework'
 			click_on 'New Homework'

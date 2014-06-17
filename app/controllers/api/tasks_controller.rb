@@ -1,40 +1,29 @@
 module API 
 	class TasksController < ApplicationController
-		def show
-			
-		end
+		
+		before_action :authenticate
 
 		def index
-			# @tasks = current_user.tasks
-			@tasks = Task.all
+			@tasks = @current_user.tasks
+			# @tasks = Task.all
 			render json: @tasks, status: 200
 		end
 
-		def user
 
+		def destroy
+			@task = Task.find(params[:id])
+			@task.destroy!
+			redirect_to '/'
 		end
 
-		# vv this was for authorization without devise. might still be needed. vv
-		# protected
-		# 	def authenticate
-		# 		authenticate_basic_auth || render_unauthorized
-		# 	end
-
-		# 	def authenticate_basic_auth
-		# 		authenticate_with_http_basic do |username, password|
-		# 			User.authenticate(username, password)
-		# 		end
-		# 	end
-
-		# 	def render_unauthorized
-		# 		self.headers['WWW-Authenticate'] = 'Basic realm="Tasks"'
-
-		# 		respond_to do |format|
-		# 			format.json { render json: 'Bad credentials', status: 401 }
-		# 			format.html { render html: 'Bad credentials', status: 401 }
-		# 			format.xml { render xml: 'Bad credentials', status: 401 }
-		# 		end
-		# 	end
-		# end
+		private
+			def authenticate 
+				if params[:token] != Rails.application.secrets.secret_api_key 
+					render text: "Incorrect Token Provided" 
+				else
+					@current_user=User.find_by(email: params[:email])
+					render text: "No user" if @current_user.nil?
+				end
+			end
 	end
 end
