@@ -19,7 +19,7 @@ describe 'Tasks' do
 
   end
 
-  it 'can add a task to the database with correct fields' do
+  it 'can add a task to the database with correct fields', js: true do
 
   	login_as user
 
@@ -29,8 +29,10 @@ describe 'Tasks' do
     fill_in 'Difficulty', with: "5"
     fill_in 'Importance', with: "6"
     fill_in 'Description', with: "Science AND maths"
-    fill_in 'Category', with: "5"
-    click_button "Create Task"
+    click_on 'Select a Category'
+    click_on ''
+    puts page.html
+    click_on "Save Task"
 
     expect(current_path).to eq '/'
     expect(Task.all.count).to eq 1
