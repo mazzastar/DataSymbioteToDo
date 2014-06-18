@@ -20,6 +20,17 @@
 @import "font-awesome";
 @import 'bootstrap-datetimepicker';
 
+@font-face {
+    font-family: 'victor-pixel';
+    src: url('./victor-pixel.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-family: 'victor-pixel';
+}
+
 .main {
 	margin: 20px;
 	margin-top: 5em;
