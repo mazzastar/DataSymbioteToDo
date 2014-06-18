@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :auth_user!, except: [:index]
+  before_action :auth_user!, except: [:index, :about]
   include TasksHelper
 
 def index

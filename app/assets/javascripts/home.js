@@ -1,5 +1,8 @@
-
 $(document).ready(function(){
+			$(".complete").closest(".task").hide()
+
+
+
 	$('body').on('click', '#done', function(event){
 		var href = $(this).siblings('a').attr('href');
 
@@ -44,6 +47,18 @@ $(document).ready(function(){
 		});
 	});
 
+	$('.completed').on('click', function(event){
+		$(".complete").closest(".task").show()
+		$(".incomplete").closest(".task").hide()
+		$(this).addclass('active')
+	});	
+	
+	$('.incompleted').on('click', function(event){
+		$(".incomplete").closest(".task").show()
+		$(".complete").closest(".task").hide()
+		$(this).addclass('active')
+				
+	});
 
 
 });

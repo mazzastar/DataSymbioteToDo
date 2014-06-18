@@ -7,7 +7,7 @@
 }
 
 .task {
-	background-color: #2680CB;
+	background-color: #2D66C1;
 	padding: 3px;
 	margin: 5px;
 	border-radius: 4px;
@@ -58,7 +58,13 @@ a.complete {
 }
 
 .btn-info {
-	background-color: #07E5F4;
+	border-color: #1E99D5;
+	background-color: #16B2E0;
+}
+
+.btn-info:hover {
+	border-color: #1E99D5;
+	background-color: #0FCCEA;
 }
 
 .btn-danger {
@@ -66,8 +72,14 @@ a.complete {
 }
 
 .nav-tabs {
-	margin-right: 0px;
-	background-color: #242424;
+	margin-right: -8px;
+	.nav-tabs > li.active > a {
+		color: #3C33AC;
+		background-color: red;
+	}
+	a {
+
+	} 
 }
 
 .inactive {

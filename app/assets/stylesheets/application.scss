@@ -29,7 +29,7 @@
 
 body {
 	font-family: 'victor-pixel';
-	background-color: #242424;
+	background-color: white;
 }
 
 .main {
@@ -39,6 +39,12 @@ body {
 .navbar-inverse {
 	border-color: #3C33AC;
 	background-color: #354DB6;
+	.navbar-nav > .active > a {
+		background-color: #3C33AC;
+	}
+	.navbar-nav > .active > a:hover {
+		background-color: #441AA2;
+	}
 }
 
 .sign_out {
@@ -60,7 +66,27 @@ body {
 	}
 }
 
+.btn-success {
+	border-color: #1E99D5;
+	background-color: #16B2E0;
+}
+
+.btn-success:hover {
+	border-color: #1E99D5;
+	background-color: #0FCCEA;
+}
+
 .dropdown-menu {
 	top: 90%;
 	left: 5%;
+}
+
+
+.navbar > .container .navbar-brand:hover, .navbar > .container-fluid .navbar-brand:hover {
+	background-color: #3C33AC;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+	background-color: #3C33AC;
+
 }
