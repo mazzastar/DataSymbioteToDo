@@ -13,7 +13,6 @@ describe 'Tasks' do
     expect(page).to have_field('Difficulty')
     expect(page).to have_field('Importance')
     expect(page).to have_field('Description')
-    expect(page).to have_field('Category')
     expect(page).to have_button('Create Task')
 
 

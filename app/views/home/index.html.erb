@@ -5,68 +5,69 @@
 	<ul class="nav nav-tabs">
 		<li class="active"><a href="#">Incomplete</a></li>
 		<li> <a href="#">Complete</a></li>
-			<li><div class="row task-section">
+	</ul>
+			<div class="task-section">
 				<% @tasks.each do |task| %>
-				<div class="task col-md-8 row">
+				<div class="row">
+					<div class="task col-lg-8">
 						<div class="donesection col-sm-1">Done?<%= check_box_tag 'done', '1', task.done, class: 'checkbox', data: { id: task.id } %></div>
-					<article class="panel-group col-md-8" id="accordion">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=task.id%>" class= <%= task.done ? "complete": "	incomplete" %>>
-									<%= task.title %> <%= task.deadline.strftime("%A, %d %b %Y %l:%M %p") %>
-								</a>
-								</h4>
-							</div>
-							<div id="collapse<%=task.id %>" class="panel-collapse collapse extraInfo">
-								<div class="panel-body">
-									<div class="panel-body-header row">
-										<div class="col-md-4">
-											<h4>Description</h4>
-											<div class="description container"><%= task.description %></div>
+						<article class="panel-group col-md-8" id="accordion">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=task.id%>" class= <%= task.done ? "complete": "	incomplete" %>>
+										<%= task.title %> <%= task.deadline.strftime("%A, %d %b %Y %l:%M %p") %>
+									</a>
+									</h4>
+								</div>
+								<div id="collapse<%=task.id %>" class="panel-collapse collapse extraInfo">
+									<div class="panel-body">
+										<div class="panel-body-header row">
+											<div class="col-md-4">
+												<h4>Description</h4>
+												<div class="description container"><%= task.description %></div>
+											</div>
+											<b class="col-md-4"> </b>
+				
+											<div class="col-md-4"><div class="icon"><%= icon(task.category) %></div>
+											<p class="category"><%= name(task.category) %></p>
+											</div>
 										</div>
-										<b class="col-md-4"> </b>
-			
-										<div class="col-md-4"><div class="icon"><%= icon(task.category) %></div>
-										<p class="category"><%= name(task.category) %></p>
+										
+										<h4>Difficulty</h4>
+										<div class="difficulty progress">
+				  							<div class="progress-bar" role="progressbar" aria-valuenow=" <%= task.difficulty %>" aria-valuemin="0" aria-valuemax	="10" 		style="width: <%= task.difficulty * 10 %>%;">
+				    							<span><%= task.difficulty %></span>
+				  							</div>
+										</div>
+										<h4>Importance</h4>
+										<div class="importance progress">
+				  							<div class="progress-bar" role="progressbar" aria-valuenow=" <%= task.importance %>" aria-valuemin="0" aria-valuemax	="10" 		style="width: <%= task.importance * 10 %>%;">
+				    							<span><%= task.importance %></span>
+				  							</div>
 										</div>
 									</div>
-									
-									<h4>Difficulty</h4>
-									<div class="difficulty progress">
-			  							<div class="progress-bar" role="progressbar" aria-valuenow=" <%= task.difficulty %>" aria-valuemin="0" aria-valuemax	="10" 		style="width: <%= task.difficulty * 10 %>%;">
-			    							<span><%= task.difficulty %></span>
-			  							</div>
-									</div>
-									<h4>Importance</h4>
-									<div class="importance progress">
-			  							<div class="progress-bar" role="progressbar" aria-valuenow=" <%= task.importance %>" aria-valuemin="0" aria-valuemax	="10" 		style="width: <%= task.importance * 10 %>%;">
-			    							<span><%= task.importance %></span>
-			  							</div>
+								</div>
+								<div id="collapse-edit<%=task.id %>" class="panel-collapse collapse ">
+									<div class="panel-body">
+										<div class="container"><h2>Edit Task</h2></div>
+										<%= render '/tasks/form', :buttontext => "Save Task", task: task %>
 									</div>
 								</div>
 							</div>
-							<div id="collapse-edit<%=task.id %>" class="panel-collapse collapse ">
-								<div class="panel-body">
-									<div class="container"><h2>Edit Task</h2></div>
-									<%= render '/tasks/form', :buttontext => "Save Task", task: task %>
-								</div>
-							</div>
+							
+						</article>
+						<div class="editdeletebtns col-md-3 row">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse-edit<%=task.id%>" class="btn btn-info col-sm-5">
+								Edit
+							</a>
+							<%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger col-sm-5'%>
 						</div>
-						
-					</article>
-					<div class="editdeletebtns col-md-3 row">
-						<a data-toggle="collapse" data-parent="#accordion" href="#collapse-edit<%=task.id%>" class="btn btn-info col-sm-5">
-							Edit
-						</a>
-						<%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger col-sm-5'%>
 					</div>
 				</div>
-				
 				<% end %>
-			</li></div>
-		<% else %>
-	</ul>
+			</div>
+<% else %>
 <div>No tasks yet!</div>
 <% end %>
 <% else %>
