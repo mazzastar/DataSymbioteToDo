@@ -11,9 +11,16 @@ module API
 
 
 		def destroy
+			@user = User.find_by(email: params[:email])
 			@task = Task.find(params[:id])
-			@task.destroy!
-			redirect_to '/'
+			if @user.id ==@task.user_id
+				@task.destroy!
+				render text: "Success"
+			else
+				render text: "Not correct user"
+			end
+			# puts @task.user.inspect
+			# redirect_to '/'
 		end
 
 		private

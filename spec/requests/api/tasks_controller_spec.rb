@@ -36,30 +36,37 @@ describe API::TasksController, :type => :api do
 	context "deleting a task via the api" do 
 		before(:each) do 
 			@new_task = create(:task, title: "TEST_TITLE", user: @user2)
+			@url_string = "/api/tasks/#{@new_task.id}"
 
 		end
 
-		 it "should not delete a task if no details have been provided" do 
-		 	url_string = "/api/tasks/#{@new_task.id}"
-		 	delete url_string
+		 it "should not delete a task if no token details have been provided" do 
+		 	@url_string = "/api/tasks/#{@new_task.id}"
+		 	delete @url_string
 			get "/api/tasks?token=#{@secret}&email=#{@user2.email}"
 			expect(response.body).to include('TEST_TITLE')
 		 end
 		
-
-		 it "should not delete a task if no details have been provided" do 
-		 	url_string = "/api/tasks/#{@new_task.id}?token=#{@secret}"
-		 	delete url_string
+		 it "should not delete a task if no email details have been provided" do 
+		 	@url_string = @url_string+"?token=#{@secret}"
+		 	delete @url_string
 			get "/api/tasks?token=#{@secret}&email=#{@user2.email}"
 			expect(response.body).to include('TEST_TITLE')
 		 end
 
-
-		it "deletes a task No task if a user has no tasks" do 
-			url_string = "/api/tasks/#{@new_task.id}?token=#{@secret}&email=#{@user2.email}"
+		 it "should not delete a task if it is a different user email details have been provided" do 
+		 	@url_string = @url_string + "?token=#{@secret}&email=#{@user1.email}"
+		 	delete @url_string
 			get "/api/tasks?token=#{@secret}&email=#{@user2.email}"
 			expect(response.body).to include('TEST_TITLE')
-			delete url_string
+		 end
+
+		it "deletes a task if both the correct " do 
+			get "/api/tasks?token=#{@secret}&email=#{@user2.email}"
+			expect(response.body).to include('TEST_TITLE')
+
+			@url_string = @url_string + "?token=#{@secret}&email=#{@user2.email}"
+			delete @url_string
 			get "/api/tasks?token=#{@secret}&email=#{@user2.email}"
 			expect(response.body).not_to include('TEST_TITLE')
 		end
