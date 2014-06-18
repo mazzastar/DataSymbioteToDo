@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
 
-	before_action :auth_user!
+	# before_action :auth_user!
 
 
 	def new

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :tasks
 
   root "home#index"
+  get '/about' => 'home#about'
 
    # constraints subdomain: 'api' do 
     namespace :api do 

@@ -1,14 +1,35 @@
 <% if user_signed_in? %>
-<h1>Task Manager</h1>
-<button class="btn new-task", type="submit" value="New Task" onclick="window.location='/tasks/new';">New Task!</button>
+<div class="row">
+	<div class="col-sm-2"></div>
+	<div class="tasktitle col-lg-8">
+		<h1>Task Manager</h1>
+	</div>
+	<div class="col-sm-2"></div>
+</div>
 <% if @tasks.any? %>
-	<ul class="nav nav-tabs">
-		<li class="active"><a href="#">Incomplete</a></li>
-		<li> <a href="#">Complete</a></li>
-	</ul>
+	<div class="row secondheader">
+		<div class="col-sm-2"></div>
+		<div class="col-lg-7">
+			<div class="row">
+				<div class="col-sm-1">
+					<button class="btn new-task", type="submit" value="New Task" onclick="window.location='/tasks/new';">New Task!</button>
+				</div>
+				<div class="col-sm-8"></div>
+				<div class="col-sm-3">
+					<ul class="nav nav-tabs row">
+						<li class="active col-sm-6"><a href="#">Incomplete</a></li>
+						<li class="inactive col-sm-5"> <a href="#">Complete</a></li>
+						<li class="col-sm-1"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
 			<div class="task-section">
 				<% @tasks.each do |task| %>
 				<div class="row">
+					<div class="col-sm-2"></div>
 					<div class="task col-lg-8">
 						<div class="donesection col-sm-1">Done?<%= check_box_tag 'done', '1', task.done, class: 'checkbox', data: { id: task.id } %></div>
 						<article class="panel-group col-md-8" id="accordion">
@@ -64,6 +85,7 @@
 							<%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger col-sm-5'%>
 						</div>
 					</div>
+					<div class="col-sm-2"></div>
 				</div>
 				<% end %>
 			</div>
