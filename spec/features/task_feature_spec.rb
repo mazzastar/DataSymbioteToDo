@@ -23,21 +23,20 @@ describe 'Tasks' do
 
   	login_as user
 
-    visit 'tasks/new'
+    visit '/tasks/new'
     fill_in 'Title', with: 'Homework'
     fill_in 'Deadline', with: "2014-06-05"
-    fill_in 'Difficulty', with: "5"
-    fill_in 'Importance', with: "6"
+    page.evaluate_script("$('#task_difficulty').attr('value',7)")
+    page.evaluate_script("$('#task_importance').attr('value',8)")
     fill_in 'Description', with: "Science AND maths"
     click_on 'Select a Category'
     click_on ''
-    puts page.html
-    click_on "Save Task"
+    click_on "Create Task"
 
     expect(current_path).to eq '/'
     expect(Task.all.count).to eq 1
-    expect(Task.all.last.difficulty).to eq 5
-    expect(Task.all.last.importance).to eq 6
+    expect(Task.all.last.difficulty).to eq 7
+    expect(Task.all.last.importance).to eq 8
     expect(Task.all.last.category).to eq 5
   end
 
