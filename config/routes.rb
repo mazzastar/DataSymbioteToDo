@@ -11,7 +11,12 @@ Rails.application.routes.draw do
       resources :tasks
     end
 
-  
+    namespace :v1 do 
+      namespace :api do 
+        resources :tasks
+      end
+    end
+
    # end
   
   # The priority is based upon order of creation: first created -> highest priority.
