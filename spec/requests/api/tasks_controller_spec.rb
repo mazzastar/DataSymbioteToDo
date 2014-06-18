@@ -1,8 +1,9 @@
 require 'spec_helper'
 
-describe API::TasksController do
+describe API::TasksController, :type => :api do
 
 	before(:each) do
+		@user1 = create(:user, email: "userNew@user.com")
 		@user2 = create(:user)
 		@secret = "secret"
 		create(:task, user: @user2)
@@ -21,7 +22,47 @@ describe API::TasksController do
 	it "displays the correct Task" do 
 		url_string = "/api/tasks?token=#{@secret}&email=#{@user2.email}"
 		get url_string
+		expect(response).not_to be_nil
+
 		expect(response.body).to include('Homework')
+	end
+
+	it "displays No task if a user has no tasks" do 
+		url_string = "/api/tasks?token=#{@secret}&email=#{@user1.email}"
+		get url_string
+		expect(response.body).to eq "[]"
+	end
+
+	context "deleting a task via the api" do 
+		before(:each) do 
+			@new_task = create(:task, title: "TEST_TITLE", user: @user2)
+
+		end
+
+		 it "should not delete a task if no details have been provided" do 
+		 	url_string = "/api/tasks/#{@new_task.id}"
+		 	delete url_string
+			get "/api/tasks?token=#{@secret}&email=#{@user2.email}"
+			expect(response.body).to include('TEST_TITLE')
+		 end
+		
+
+		 it "should not delete a task if no details have been provided" do 
+		 	url_string = "/api/tasks/#{@new_task.id}?token=#{@secret}"
+		 	delete url_string
+			get "/api/tasks?token=#{@secret}&email=#{@user2.email}"
+			expect(response.body).to include('TEST_TITLE')
+		 end
+
+
+		it "deletes a task No task if a user has no tasks" do 
+			url_string = "/api/tasks/#{@new_task.id}?token=#{@secret}&email=#{@user2.email}"
+			get "/api/tasks?token=#{@secret}&email=#{@user2.email}"
+			expect(response.body).to include('TEST_TITLE')
+			delete url_string
+			get "/api/tasks?token=#{@secret}&email=#{@user2.email}"
+			expect(response.body).not_to include('TEST_TITLE')
+		end
 	end
 
 end

@@ -22,6 +22,8 @@ Warden.test_mode!
 
 RSpec.configure do |config|
 
+  config.include Requests::JsonHelpers, :type => :controller
+  
   config.include FactoryGirl::Syntax::Methods
   # ## Mock Framework
   #
