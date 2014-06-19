@@ -12,6 +12,7 @@
 	margin: 5px;
 	border-radius: 4px;
 	max-width: 1140px;
+	min-height: 50px;
 }
 
 .new-task {
@@ -32,7 +33,6 @@
 	margin: 5px;
 }
 
-
 .panel-default {
 	margin-top: 2px;
 }
@@ -51,12 +51,6 @@ a.complete {
 	}
 }
 
-.btn-group {
-	.btn {
-	margin: 0px;
-	}
-}
-
 .btn-info {
 	border-color: #1E99D5;
 	background-color: #16B2E0;
@@ -71,23 +65,14 @@ a.complete {
 	background-color: #F23041;
 }
 
-.nav-tabs {
-	margin-right: -8px;
+.selector {
+	padding: 0px 10px;
+	min-width: 110px;
+}
+
+.nav-tabs > li > a {
+	min-width: 110px;
 	.nav-tabs > li.active > a {
 		color: #3C33AC;
-		background-color: red;
 	}
-	a {
-
-	} 
-}
-
-.inactive {
-	right: 10%;
-}
-
-.selector {
-	margin-right: -5px;
-	padding: 0px 10px;
-	min-width: 100px;
 }

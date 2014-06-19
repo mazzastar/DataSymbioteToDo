@@ -7,30 +7,28 @@
 	<div class="col-sm-2"></div>
 </div>
 <% if @tasks.any? %>
-	<div class="row secondheader">
-		<div class="col-sm-2"></div>
+	<div class="row">
+		<div class="col-lg-2"></div>
 		<div class="col-lg-7">
 			<div class="row">
-				<div class="col-sm-1">
+				<div class="col-md-1">
 					<button class="btn new-task", type="submit" value="New Task" onclick="window.location='/tasks/new';">New Task!</button>
 				</div>
-				<div class="col-sm-8"></div>
-				<div class="col-sm-3">
-					<ul class="nav nav-tabs row">
-						<li class="selector active col-sm-6"><a class="incompleted" href="#">Incomplete</a></li>
-						<li class="selector col-sm-6"> <a class="completed" href="#">Complete</a></li>
+				<div class="col-md-8"></div>
+					<ul class="nav nav-tabs col-md-3">
+						<li class="selector active"><a class="incompleted" href="#">Incomplete</a></li>
+						<li class="selector"> <a class="completed" href="#">Complete</a></li>
 					</ul>
-				</div>
 			</div>
 		</div>
-		<div class="col-sm-3"></div>
+		<div class="col-lg-3"></div>
 	</div>
 			<div class="task-section">
 				<% @tasks.each do |task| %>
 				<div class="row">
-					<div class="col-sm-2"></div>
+					<div class="col-lg-2"></div>
 					<div class="task col-lg-8">
-						<div class="donesection col-sm-1">Done?<%= check_box_tag 'done', '1', task.done, class: 'checkbox', data: { id: task.id } %></div>
+						<div class="donesection col-md-1">Done?<%= check_box_tag 'done', '1', task.done, class: 'checkbox', data: { id: task.id } %></div>
 						<article class="panel-group col-md-8" id="accordion">
 							<div class="panel panel-default">
 								<div class="panel-heading">
@@ -78,10 +76,10 @@
 							
 						</article>
 						<div class="editdeletebtns col-md-3 row">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse-edit<%=task.id%>" class="btn btn-info col-sm-5">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse-edit<%=task.id%>" class="btn btn-info col-md-5">
 								Edit
 							</a>
-							<%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger col-sm-5'%>
+							<%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger col-md-5'%>
 						</div>
 					</div>
 					<div class="col-sm-2"></div>
