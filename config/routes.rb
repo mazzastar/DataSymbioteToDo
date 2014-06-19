@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root "home#index"
   get '/about' => 'home#about'
+  get '/live' => 'home#live'
 
    # constraints subdomain: 'api' do 
     namespace :api do 

@@ -31,3 +31,7 @@ end
 def about
 
 end
+
+def live
+
+end
