@@ -1,28 +1,13 @@
-== README
+# Data Sybiote Task Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- A task manager application that exports user data as an API, for use with other projects, using the Rails framework and Postgress Database. Developed by [Alex Wong](https://github.com/mazzastar) and [Joseph Wolf](https://github.com/josephwolf).
 
-Things you may want to cover:
+- The aim is to present and export data in a way that is both intuitive for users to create, and flexable for developers to use in statistical analysis or data visulization.
 
-* Ruby version
+- Use the task manager app [on Heroku](http://datasymbiote.herokuapp.com/).
 
-* System dependencies
+- See a working demontration: [DataBounce](https://github.com/llexileon/datavisual) developed by [Robert Leon](https://github.com/llexileon)
 
-* Configuration
+# Integration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+- 

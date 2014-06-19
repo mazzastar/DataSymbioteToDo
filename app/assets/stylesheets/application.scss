@@ -40,6 +40,7 @@ body {
 	border-color: #3C33AC;
 	background-color: #354DB6;
 	.navbar-nav > .active > a {
+		transition: all 0.5s ease;
 		background-color: #3C33AC;
 	}
 	.navbar-nav > .active > a:hover {
@@ -84,10 +85,12 @@ body {
 
 
 .navbar > .container .navbar-brand:hover, .navbar > .container-fluid .navbar-brand:hover {
+	transition: all 0.5s ease;
 	background-color: #3C33AC;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
+	transition: all 0.5s ease;
 	background-color: #3C33AC;
 
 }
