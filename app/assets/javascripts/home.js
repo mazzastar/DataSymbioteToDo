@@ -11,9 +11,13 @@ $(document).ready(function(){
 		var text = ($(this).closest('.row').find('a').first());
 		if (text.hasClass("complete")){
 			$(text).removeClass("complete").addClass("incomplete");
+			$(".incomplete").closest(".task").slideUp()
+
 		}
 		else{
 			$(text).removeClass("incomplete").addClass("complete");
+			$(".complete").closest(".task").slideUp()
+
 		}
 	});	
 
@@ -48,14 +52,14 @@ $(document).ready(function(){
 	});
 
 	$('.completed').on('click', function(event){
-		$(".complete").closest(".task").show()
-		$(".incomplete").closest(".task").hide()
+		$(".complete").closest(".task").slideDown()
+		$(".incomplete").closest(".task").slideUp()
 		$(this).addclass('active')
 	});	
 	
 	$('.incompleted').on('click', function(event){
-		$(".incomplete").closest(".task").show()
-		$(".complete").closest(".task").hide()
+		$(".incomplete").closest(".task").slideDown()
+		$(".complete").closest(".task").slideUp()
 		$(this).addclass('active')
 				
 	});
