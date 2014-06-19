@@ -32,6 +32,7 @@ module API
 			else
 				render json: {status: "Not correct user"}
 			end
+		end
 
 		private
 			def authenticate 
