@@ -23,6 +23,16 @@ module API
 			# redirect_to '/'
 		end
 
+		def update
+			@user = User.find_by(email: params[:email])
+			@task = Task.find(params[:id])
+			if @user.id ==@task.user_id
+				@task.update(params[:task].permit(:title, :done, :deadline, :difficulty, :importance, :description, :category))
+				render json: {status: "Success"}
+			else
+				render json: {status: "Not correct user"}
+			end
+
 		private
 			def authenticate 
 				if params[:token] != Rails.application.secrets.secret_api_key 
