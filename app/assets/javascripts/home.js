@@ -54,14 +54,16 @@ $(document).ready(function(){
 	$('.completed').on('click', function(event){
 		$(".complete").closest(".task").slideDown()
 		$(".incomplete").closest(".task").slideUp()
-		$(this).addclass('active')
+		$(this).parent().addClass('active')
+		$('.incompleted').parent().removeClass('active')
+
 	});	
 	
 	$('.incompleted').on('click', function(event){
 		$(".incomplete").closest(".task").slideDown()
 		$(".complete").closest(".task").slideUp()
-		$(this).addclass('active')
-				
+		$(this).parent().addClass('active')
+		$('.completed').parent().removeClass('active')
 	});
 
 
