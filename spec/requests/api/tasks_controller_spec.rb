@@ -37,7 +37,6 @@ describe API::TasksController, :type => :api do
 		before(:each) do 
 			@new_task = create(:task, title: "TEST_TITLE", user: @user2)
 			@url_string = "/api/tasks/#{@new_task.id}"
-
 		end
 
 		 it "should not delete a task if no token details have been provided" do 
@@ -70,6 +69,21 @@ describe API::TasksController, :type => :api do
 			get "/api/tasks?token=#{@secret}&email=#{@user2.email}"
 			expect(response.body).not_to include('TEST_TITLE')
 		end
+	end
+
+
+	context "updating a task via the api" do 
+		before(:each) do 
+			@new_task = create(:task, title: "TEST_TITLE", user: @user2)
+		end
+
+		it "should update a task if both the correct token and email are  supplied" do 
+			expect(@new_task.done).to eq false
+			put "/api/tasks/#{@new_task.id}?token=#{@secret}&email=#{@user2.email}", { task: { done: true } }
+			expect(@new_task.reload.done).to eq true
+		end
+
+
 	end
 
 end
