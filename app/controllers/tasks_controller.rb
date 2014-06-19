@@ -30,7 +30,7 @@ class TasksController < ApplicationController
 	def update
 		@task = Task.find(params[:id])
 		
-		if @task.update_attributes(params[:task].permit(:title, :done, :deadline, :difficulty, :importance, :description, :category))
+		if @task.update(params[:task].permit(:title, :done, :deadline, :difficulty, :importance, :description, :category))
 			if request.xhr?
 				render json: @task
 			else
