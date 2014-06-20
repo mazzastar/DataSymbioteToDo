@@ -70,9 +70,17 @@ a.complete {
 	min-width: 110px;
 }
 
+.nav-tabs {
+	left: 95px;
+}
+
 .nav-tabs > li > a {
 	min-width: 110px;
 	.nav-tabs > li.active > a {
 		color: #3C33AC;
 	}
+}
+
+.col-md-4 {
+
 }
