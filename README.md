@@ -1,12 +1,29 @@
-# Data Sybiote Task Manager
+Data Sybiote Task Manager
+=========================
 
-- A task manager application that exports user data as an exposed API, for use with other projects, using the Rails framework and Postgress Database. Developed by [Alex Wong] and [Joseph Wolf].
+- A task manager application that exports user data as an exposed API, for use with other projects.. Developed by [Alex Wong] and [Joseph Wolf].
 
-- The aim is to present and export data in a way that is both intuitive for users to create, and flexable for developers to use in statistical analysis or data visulization.
+- The aim is to present and export data in a way that is both intuitive for users to create, and flexible for developers to use in statistical analysis or data visualization.
 
 - Use the task manager app [on Heroku].
 
-- See a working demontration: [DataBounce] developed by [Robert Leon]
+- See a working demonstration of the API: [DataBounce] developed by [Robert Leon]
+
+## Usage
+
+- Data Symbiote was designed to be easy and intuitive for the end user.
+
+- After signing up, users can add new tasks with fields such as deadline, importance, difficulty, category and description.
+
+- This data can then be accessed by applications at /api/tasks (with the correct user token).
+
+## Technology
+
+- This project was made using the Ruby on Rails framework and postgres database.
+
+- The user interface uses Javascript, AJAX and JSON elements and was styled with Twitter Bootstrap.
+
+- The user system and database was made using Devise and bcrypt security protocols.
 
 
 [Alex Wong]:https://github.com/mazzastar
