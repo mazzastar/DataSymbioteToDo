@@ -1,7 +1,7 @@
 Data Symbiote Task Manager
 =========================
 
-- A task manager application that exports user data as an exposed API, for use with other projects.. Developed by [Alex Wong] and [Joseph Wolf].
+- A task manager application that exports user data as an exposed API, for use with other projects. Developed by [Alex Wong] and [Joseph Wolf].
 
 - The aim is to present and export data in a way that is both intuitive for users to create, and flexible for developers to use in statistical analysis or data visualization.
 
