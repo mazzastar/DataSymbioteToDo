@@ -12,7 +12,9 @@ Data Symbiote Task Manager
 
 ## Usage
 
-- Data Symbiote was designed to be easy and intuitive for the end user.
+- Data Symbiote was designed to be easy and intuitive for the end user. 
+
+- With extra parameters associated with a task, this data can be used to change the way we display tasks.
 
 - After signing up, users can add new tasks with fields such as deadline, importance, difficulty, category and description.
 
