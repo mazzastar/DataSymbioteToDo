@@ -1,5 +1,6 @@
 Data Symbiote Task Manager
 =========================
+![](public/DataSymbiote.png)
 
 - A task manager application that exports user data as an exposed API, for use with other projects. Developed by [Alex Wong] and [Joseph Wolf].
 
