@@ -6,7 +6,7 @@ Data Symbiote Task Manager
 
 - The aim is to present and export data in a way that is both intuitive for users to create, and flexible for developers to use in statistical analysis or data visualization.
 
-- Use the task manager app [on Heroku].
+- Use the task manager app here [on Heroku].
 
 - See a working demonstration of the API: [DataBounce] developed by [Robert Leon]
 
